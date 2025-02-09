@@ -1,0 +1,174 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    color: #333;
+  }
+  
+  a {
+    text-decoration: none;
+    color: #333;
+  }
+  
+  ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+  
+  /* Header and Navigation */
+  header {
+    background-color: #d9534f;
+    padding: 15px 20px;
+  }
+  
+  nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  nav .logo h1 {
+    color: #fff;
+    font-size: 2rem;
+  }
+  
+  .nav-links {
+    display: flex;
+  }
+  
+  .nav-links li {
+    margin: 0 15px;
+  }
+  
+  .nav-links a {
+    color: #fff;
+    font-size: 1.1rem;
+  }
+  
+  /* Hero Section */
+  .hero {
+    background-image: url('bbq-hero.jpg'); /* Replace with your BBQ image */
+    background-size: cover;
+    background-position: center;
+    padding: 100px 20px;
+    text-align: center;
+    color: white;
+  }
+  
+  .hero-content h2 {
+    font-size: 3rem;
+    margin-bottom: 10px;
+  }
+  
+  .hero-content p {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+  }
+  
+  .cta-btn {
+    background-color: #ff5722;
+    color: white;
+    padding: 10px 20px;
+    font-size: 1.2rem;
+    border-radius: 5px;
+  }
+  
+  /* Menu Section */
+  .menu-section {
+    background-color: #fff;
+    padding: 50px 20px;
+    text-align: center;
+  }
+  
+  .menu-section h2 {
+    font-size: 2.5rem;
+    margin-bottom: 30px;
+  }
+  
+  .menu-items {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+  }
+  
+  .menu-item {
+    margin: 15px;
+    text-align: center;
+    width: 30%;
+  }
+  
+  .menu-item img {
+    width: 100%;
+    border-radius: 5px;
+  }
+  
+  .price {
+    font-size: 1.2rem;
+    color: #d9534f;
+    margin-top: 10px;
+  }
+  
+  /* About Section */
+  .about-section {
+    background-color: #f8f8f8;
+    padding: 50px 20px;
+    text-align: center;
+  }
+  
+  .about-section h2 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+  }
+  
+  .about-section p {
+    font-size: 1.2rem;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  
+  /* Contact Section */
+  .contact-section {
+    padding: 50px 20px;
+    background-color: #fff;
+    text-align: center;
+  }
+  
+  .contact-section h2 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+  }
+  
+  .contact-section address {
+    font-size: 1.2rem;
+  }
+  
+  .contact-section a {
+    color: #d9534f;
+  }
+  
+  /* Footer */
+  footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 20px;
+  }
+  
+  .footer-content {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  
+  .social-links a {
+    color: #d9534f;
+    margin: 0 10px;
+    font-size: 1.1rem;
+  }
+  
+  .social-links a:hover {
+    text-decoration: underline;
+  }
+  
