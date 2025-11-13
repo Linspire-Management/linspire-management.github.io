@@ -1,174 +1,207 @@
-/* General Styles */
+:root {
+  --cream: #f4ecdf;
+  --dark: #111111;
+  --nav-text: #f5f5f5;
+  --button-bg: #f4ecdf;
+  --button-text: #222222;
+}
+
+/* RESET */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f4f4f4;
-    color: #333;
-  }
-  
-  a {
-    text-decoration: none;
-    color: #333;
-  }
-  
-  ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-  }
-  
-  /* Header and Navigation */
+  font-family: "Montserrat", system-ui, sans-serif;
+  color: #000;
+  background: #000;
+}
+
+img {
+  width: 100%;
+  display: block;
+}
+
+/* NAVBAR */
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 20;
+  padding: 24px 60px;
+  display: flex;
+  justify-content: flex-end;
+  background: linear-gradient(to bottom, rgba(0,0,0,0.9), rgba(0,0,0,0));
+}
+
+nav {
+  display: flex;
+  gap: 40px;
+  text-transform: uppercase;
+  font-size: 13px;
+  letter-spacing: 0.18em;
+  color: var(--nav-text);
+}
+
+nav a {
+  position: relative;
+}
+
+nav a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 0;
+  height: 1px;
+  background: var(--nav-text);
+  transition: width 0.2s ease;
+}
+
+nav a:hover::after {
+  width: 100%;
+}
+
+/* HERO SECTION */
+.hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: #fff;
+  padding: 0 16px;
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url("https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExaTVhbTdiYTc3b2ZicTc1eW82a2pkY3J2aG94MDJqZXhycHplYWh5byZlcD12MV9naWZzX3NlYXJjaCZjdD1n/hvYtNN9uKULLk8qHYL/giphy.gif");
+  background-size: cover;
+  background-position: center;
+  filter: brightness(0.55);
+  z-index: -2;
+}
+
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at center, rgba(0,0,0,0) 40%, rgba(0,0,0,0.55) 100%);
+  z-index: -1;
+}
+
+.hero-content {
+  max-width: 640px;
+}
+
+.hero h1 {
+  font-size: clamp(32px, 5vw, 52px);
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.hero h2 {
+  font-size: clamp(18px, 2.2vw, 24px);
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  font-weight: 600;
+  margin-bottom: 32px;
+}
+
+/* HERO BUTTON */
+.btn {
+  padding: 14px 40px;
+  border-radius: 4px;
+  background: var(--button-bg);
+  color: var(--button-text);
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  font-size: 12px;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.4);
+}
+
+/* SPECIALTIES SECTION */
+.specialties {
+  background: var(--cream);
+  padding: 70px 40px 80px;
+  text-align: center;
+}
+
+.specialties-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.specialties h3 {
+  font-size: 28px;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  margin-bottom: 40px;
+}
+
+.specialty-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+}
+
+.specialty-card img {
+  height: 240px;
+  object-fit: cover;
+}
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
   header {
-    background-color: #d9534f;
-    padding: 15px 20px;
+    justify-content: center;
+    padding-inline: 24px;
   }
-  
+
   nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    gap: 24px;
+    font-size: 12px;
   }
-  
-  nav .logo h1 {
-    color: #fff;
-    font-size: 2rem;
+
+  .specialty-grid {
+    grid-template-columns: repeat(2, 1fr);
   }
-  
-  .nav-links {
-    display: flex;
+}
+
+@media (max-width: 640px) {
+  header {
+    padding: 20px 16px;
   }
-  
-  .nav-links li {
-    margin: 0 15px;
+
+  nav {
+    gap: 18px;
+    font-size: 11px;
   }
-  
-  .nav-links a {
-    color: #fff;
-    font-size: 1.1rem;
+
+  .specialties {
+    padding-inline: 20px;
   }
-  
-  /* Hero Section */
-  .hero {
-    background-image: url('bbq-hero.jpg'); /* Replace with your BBQ image */
-    background-size: cover;
-    background-position: center;
-    padding: 100px 20px;
-    text-align: center;
-    color: white;
+
+  .specialty-grid {
+    grid-template-columns: 1fr;
   }
-  
-  .hero-content h2 {
-    font-size: 3rem;
-    margin-bottom: 10px;
+
+  .specialty-card img {
+    height: 220px;
   }
-  
-  .hero-content p {
-    font-size: 1.5rem;
-    margin-bottom: 20px;
-  }
-  
-  .cta-btn {
-    background-color: #ff5722;
-    color: white;
-    padding: 10px 20px;
-    font-size: 1.2rem;
-    border-radius: 5px;
-  }
-  
-  /* Menu Section */
-  .menu-section {
-    background-color: #fff;
-    padding: 50px 20px;
-    text-align: center;
-  }
-  
-  .menu-section h2 {
-    font-size: 2.5rem;
-    margin-bottom: 30px;
-  }
-  
-  .menu-items {
-    display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
-  }
-  
-  .menu-item {
-    margin: 15px;
-    text-align: center;
-    width: 30%;
-  }
-  
-  .menu-item img {
-    width: 100%;
-    border-radius: 5px;
-  }
-  
-  .price {
-    font-size: 1.2rem;
-    color: #d9534f;
-    margin-top: 10px;
-  }
-  
-  /* About Section */
-  .about-section {
-    background-color: #f8f8f8;
-    padding: 50px 20px;
-    text-align: center;
-  }
-  
-  .about-section h2 {
-    font-size: 2.5rem;
-    margin-bottom: 20px;
-  }
-  
-  .about-section p {
-    font-size: 1.2rem;
-    max-width: 800px;
-    margin: 0 auto;
-  }
-  
-  /* Contact Section */
-  .contact-section {
-    padding: 50px 20px;
-    background-color: #fff;
-    text-align: center;
-  }
-  
-  .contact-section h2 {
-    font-size: 2.5rem;
-    margin-bottom: 20px;
-  }
-  
-  .contact-section address {
-    font-size: 1.2rem;
-  }
-  
-  .contact-section a {
-    color: #d9534f;
-  }
-  
-  /* Footer */
-  footer {
-    background-color: #333;
-    color: white;
-    text-align: center;
-    padding: 20px;
-  }
-  
-  .footer-content {
-    max-width: 800px;
-    margin: 0 auto;
-  }
-  
-  .social-links a {
-    color: #d9534f;
-    margin: 0 10px;
-    font-size: 1.1rem;
-  }
-  
-  .social-links a:hover {
-    text-decoration: underline;
-  }
-  
+}
