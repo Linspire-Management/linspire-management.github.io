@@ -20,7 +20,7 @@
   <header>
     <nav>
       <a href="#home">Home</a>
-      <a href="#menu">Menu</a>
+      <a href="#menu" onclick="scrollToMenu()">Menu</a>
       <a href="#about">About</a>
       <a href="#contact">Contact</a>
     </nav>
@@ -32,7 +32,7 @@
       <div class="hero-content">
         <h1>Korean-Fusion<br>Barbecue</h1>
         <h2>Savor the Flavor</h2>
-        <button class="btn" onclick="scrollToMenu()">View Menu</button>
+        <button class="btn" onclick="document.getElementById('contact').scrollIntoView({ behavior: 'smooth' })">Reserve Now</button>
       </div>
     </section>
 
