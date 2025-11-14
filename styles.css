@@ -319,6 +319,46 @@ nav a:hover {
   opacity: 0.5;
 }
 
+/* ABOUT SECTION */
+.about {
+  background: var(--dark);
+  color: var(--nav-text);
+  padding: 70px 40px 80px;
+  text-align: center;
+}
+
+.about-inner {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.about h3 {
+  font-size: 28px;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  margin-bottom: 30px;
+  color: var(--cream);
+}
+
+.about p {
+  font-size: 16px;
+  line-height: 1.8;
+  margin-bottom: 20px;
+  color: var(--nav-text);
+}
+
+.about a {
+  color: var(--cream);
+  text-decoration: none;
+  border-bottom: 1px solid var(--cream);
+  transition: color 0.3s ease, border-color 0.3s ease;
+}
+
+.about a:hover {
+  color: var(--button-bg);
+  border-color: var(--button-bg);
+}
+
 /* CONTACT SECTION */
 .contact {
   background: var(--dark);
