@@ -217,6 +217,22 @@ nav a:hover {
   color: var(--nav-text);
 }
 
+/* FOOTER */
+footer {
+  background: var(--dark);
+  color: var(--nav-text);
+  text-align: center;
+  padding: 30px 40px;
+  border-top: 1px solid rgba(244, 236, 223, 0.15);
+}
+
+footer p {
+  font-size: 14px;
+  line-height: 1.8;
+  letter-spacing: 0.08em;
+  opacity: 0.85;
+}
+
 /* RESPONSIVE */
 @media (max-width: 900px) {
   header {
