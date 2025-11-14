@@ -9,6 +9,38 @@ document.addEventListener('DOMContentLoaded', function() {
   const menuCards = document.querySelectorAll('.menu-card');
   const menuContents = document.querySelectorAll('.menu-content');
 
+  // Populate included items from previous menus
+  function populateIncludedItems() {
+    menuContents.forEach(content => {
+      const includes = content.getAttribute('data-includes');
+      if (includes) {
+        const menuList = content.querySelector('.menu-list');
+        const existingItems = Array.from(menuList.querySelectorAll('li'));
+
+        // Get items from included menus
+        const includeMenus = includes.split(',').map(m => m.trim());
+        const includedItems = [];
+
+        includeMenus.forEach(menuId => {
+          const sourceMenu = document.getElementById(`menu-${menuId}`);
+          if (sourceMenu) {
+            const sourceItems = sourceMenu.querySelectorAll('.menu-list li:not(.menu-included)');
+            sourceItems.forEach(item => {
+              const clonedItem = item.cloneNode(true);
+              clonedItem.classList.add('menu-included');
+              includedItems.push(clonedItem);
+            });
+          }
+        });
+
+        // Insert included items at the beginning
+        includedItems.reverse().forEach(item => {
+          menuList.insertBefore(item, menuList.firstChild);
+        });
+      }
+    });
+  }
+
   function showMenu(menuId) {
     // Remove active class from all cards and contents
     menuCards.forEach(card => card.classList.remove('active'));
@@ -44,6 +76,9 @@ document.addEventListener('DOMContentLoaded', function() {
       showMenu(menuId);
     });
   });
+
+  // Populate included items first
+  populateIncludedItems();
 
   // Show Menu A by default
   showMenu('a');
