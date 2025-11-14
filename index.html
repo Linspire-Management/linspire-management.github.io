@@ -41,55 +41,86 @@
       <div class="menu-inner">
         <h3>Our Menus</h3>
 
-        <div class="menu-grid">
+        <div class="menu-container">
+          <!-- Left Side: Menu List -->
+          <div class="menu-list-column">
+            <div class="menu-card" data-menu="a">
+              <h4>Menu A</h4>
+            </div>
 
-          <!-- Menu A -->
-          <div class="menu-card">
-            <h4>Menu A</h4>
-            <ul class="menu-list">
-              <li>Premium Short Ribs</li>
-              <li>Marinated Bulgogi</li>
-              <li>Pork Belly</li>
-              <li>Kimchi & Banchan</li>
-              <li>Steamed Rice</li>
-            </ul>
+            <div class="menu-card menu-highlighted" data-menu="b">
+              <h4>Menu B</h4>
+            </div>
+
+            <div class="menu-card" data-menu="c">
+              <h4>Menu C</h4>
+            </div>
           </div>
 
-          <!-- Menu B -->
-          <div class="menu-card menu-highlighted">
-            <h4>Menu B</h4>
-            <p class="menu-includes">Includes all Menu A items, plus:</p>
-            <ul class="menu-list">
-              <li class="menu-included">Premium Short Ribs</li>
-              <li class="menu-included">Marinated Bulgogi</li>
-              <li class="menu-included">Pork Belly</li>
-              <li class="menu-included">Kimchi & Banchan</li>
-              <li class="menu-included">Steamed Rice</li>
-              <li>Grilled Chicken</li>
-              <li>Spicy Pork</li>
-              <li>Korean Stew</li>
-            </ul>
-          </div>
+          <!-- Right Side: Shared Canvas -->
+          <div class="menu-canvas">
+            <div class="menu-content" id="menu-a">
+              <h4>Menu A</h4>
+              <ul class="menu-list">
+                <li>Galbi (Short Ribs)</li>
+                <li>Bulgogi (Marinated Beef)</li>
+                <li>Samgyeopsal (Pork Belly)</li>
+                <li>Japchae (Glass Noodles)</li>
+                <li>Kimchi & Assorted Banchan</li>
+                <li>Steamed White Rice</li>
+                <li>Miso Soup</li>
+                <li>Fresh Lettuce Wraps</li>
+              </ul>
+            </div>
 
-          <!-- Menu C -->
-          <div class="menu-card">
-            <h4>Menu C</h4>
-            <p class="menu-includes">Includes all Menu B items, plus:</p>
-            <ul class="menu-list">
-              <li class="menu-included">Premium Short Ribs</li>
-              <li class="menu-included">Marinated Bulgogi</li>
-              <li class="menu-included">Pork Belly</li>
-              <li class="menu-included">Kimchi & Banchan</li>
-              <li class="menu-included">Steamed Rice</li>
-              <li class="menu-included">Grilled Chicken</li>
-              <li class="menu-included">Spicy Pork</li>
-              <li class="menu-included">Korean Stew</li>
-              <li>Premium Ribeye</li>
-              <li>Fresh Seafood Platter</li>
-              <li>Chef's Special Sauce</li>
-            </ul>
-          </div>
+            <div class="menu-content" id="menu-b">
+              <h4>Menu B</h4>
+              <p class="menu-includes">Includes all Menu A items, plus:</p>
+              <ul class="menu-list">
+                <li class="menu-included">Galbi (Short Ribs)</li>
+                <li class="menu-included">Bulgogi (Marinated Beef)</li>
+                <li class="menu-included">Samgyeopsal (Pork Belly)</li>
+                <li class="menu-included">Japchae (Glass Noodles)</li>
+                <li class="menu-included">Kimchi & Assorted Banchan</li>
+                <li class="menu-included">Steamed White Rice</li>
+                <li class="menu-included">Miso Soup</li>
+                <li class="menu-included">Fresh Lettuce Wraps</li>
+                <li>Dakgalbi (Spicy Chicken)</li>
+                <li>Dwaeji Bulgogi (Spicy Pork)</li>
+                <li>Sundubu Jjigae (Soft Tofu Stew)</li>
+                <li>Haemul Pajeon (Seafood Pancake)</li>
+                <li>Korean Fried Chicken</li>
+              </ul>
+            </div>
 
+            <div class="menu-content" id="menu-c">
+              <h4>Menu C</h4>
+              <p class="menu-includes">Includes all Menu B items, plus:</p>
+              <ul class="menu-list">
+                <li class="menu-included">Galbi (Short Ribs)</li>
+                <li class="menu-included">Bulgogi (Marinated Beef)</li>
+                <li class="menu-included">Samgyeopsal (Pork Belly)</li>
+                <li class="menu-included">Japchae (Glass Noodles)</li>
+                <li class="menu-included">Kimchi & Assorted Banchan</li>
+                <li class="menu-included">Steamed White Rice</li>
+                <li class="menu-included">Miso Soup</li>
+                <li class="menu-included">Fresh Lettuce Wraps</li>
+                <li class="menu-included">Dakgalbi (Spicy Chicken)</li>
+                <li class="menu-included">Dwaeji Bulgogi (Spicy Pork)</li>
+                <li class="menu-included">Sundubu Jjigae (Soft Tofu Stew)</li>
+                <li class="menu-included">Haemul Pajeon (Seafood Pancake)</li>
+                <li class="menu-included">Korean Fried Chicken</li>
+                <li>LA Galbi (Premium Short Ribs)</li>
+                <li>Chadolbaegi (Brisket)</li>
+                <li>Saenggalbi (Prime Beef Ribs)</li>
+                <li>Jumulleok (Seasoned Ribeye)</li>
+                <li>Grilled Shrimp & Scallops</li>
+                <li>Bibimbap (Mixed Rice Bowl)</li>
+                <li>Naengmyeon (Cold Noodles)</li>
+                <li>Premium Soju Selection</li>
+              </ul>
+            </div>
+          </div>
         </div>
       </div>
     </section>

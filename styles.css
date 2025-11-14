@@ -162,11 +162,17 @@ nav a:hover {
   color: var(--cream);
 }
 
-.menu-grid {
+.menu-container {
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+  gap: 40px;
+  align-items: start;
+}
+
+.menu-list-column {
   display: flex;
   flex-direction: column;
   gap: 16px;
-  max-width: 300px;
 }
 
 .menu-card {
@@ -174,38 +180,47 @@ nav a:hover {
   border: 1px solid rgba(244, 236, 223, 0.15);
   border-radius: 8px;
   padding: 24px;
-  margin-bottom: 0;
   text-align: left;
-  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+  transition: background 0.3s cubic-bezier(0.4, 0, 0.2, 1),
               border-color 0.3s cubic-bezier(0.4, 0, 0.2, 1),
-              box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1),
-              width 0.6s cubic-bezier(0.4, 0, 0.2, 1),
-              padding 0.6s cubic-bezier(0.4, 0, 0.2, 1),
-              margin-bottom 0.6s cubic-bezier(0.4, 0, 0.2, 1),
-              z-index 0s linear 0s;
+              transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   cursor: pointer;
-  overflow: hidden;
-  width: 300px;
   position: relative;
-  z-index: 1;
-  pointer-events: auto;
 }
 
 .menu-card:hover {
+  background: rgba(244, 236, 223, 0.1);
   border-color: rgba(244, 236, 223, 0.3);
-  overflow: visible;
-  width: 900px;
-  z-index: 10;
-  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.6);
-  padding-bottom: 32px;
-  margin-bottom: 250px;
-  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1) 0.6s,
-              border-color 0.3s cubic-bezier(0.4, 0, 0.2, 1) 0.6s,
-              box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1) 0.6s,
-              width 0.6s cubic-bezier(0.4, 0, 0.2, 1) 0.6s,
-              padding 0.6s cubic-bezier(0.4, 0, 0.2, 1) 0.6s,
-              margin-bottom 0.6s cubic-bezier(0.4, 0, 0.2, 1) 0.6s,
-              z-index 0s linear 0.6s;
+  transform: translateX(4px);
+}
+
+.menu-card.active {
+  background: rgba(244, 236, 223, 0.12);
+  border-color: rgba(244, 236, 223, 0.5);
+  border-width: 2px;
+}
+
+.menu-canvas {
+  background: rgba(244, 236, 223, 0.05);
+  border: 1px solid rgba(244, 236, 223, 0.15);
+  border-radius: 8px;
+  padding: 40px;
+  min-height: 400px;
+  position: relative;
+}
+
+.menu-content {
+  display: none;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+              transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.menu-content.active {
+  display: block;
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .menu-highlighted {
@@ -214,66 +229,44 @@ nav a:hover {
 }
 
 .menu-card h4 {
-  font-size: 20px;
+  font-size: 18px;
   text-transform: uppercase;
   letter-spacing: 0.15em;
-  margin-bottom: 0;
+  margin: 0;
   color: var(--cream);
   text-align: left;
-  transition: color 0.3s cubic-bezier(0.4, 0, 0.2, 1),
-              margin-bottom 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: color 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.menu-card:hover h4 {
+.menu-card:hover h4,
+.menu-card.active h4 {
   color: var(--button-bg);
-  margin-bottom: 20px;
-  transition: color 0.3s cubic-bezier(0.4, 0, 0.2, 1) 0.7s,
-              margin-bottom 0.3s cubic-bezier(0.4, 0, 0.2, 1) 0.7s;
+}
+
+.menu-content h4 {
+  font-size: 28px;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  margin-bottom: 24px;
+  color: var(--cream);
+  text-align: left;
 }
 
 .menu-includes {
-  font-size: 12px;
+  font-size: 13px;
   color: var(--cream);
-  margin-bottom: 0;
+  margin-bottom: 16px;
   font-style: italic;
-  opacity: 0;
-  max-height: 0;
-  overflow: hidden;
-  transition: opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1),
-              max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1),
-              margin-bottom 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.menu-card:hover .menu-includes {
   opacity: 0.9;
-  max-height: 50px;
-  margin-bottom: 12px;
-  transition: opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1) 0.8s,
-              max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1) 0.8s,
-              margin-bottom 0.4s cubic-bezier(0.4, 0, 0.2, 1) 0.8s;
 }
 
 .menu-list {
   list-style: none;
   padding: 0;
   margin: 0;
-  max-height: 0;
-  overflow: hidden;
-  transition: max-height 0.5s cubic-bezier(0.4, 0, 0.2, 1),
-              grid-template-columns 0s linear 0s,
-              gap 0s linear 0s;
   display: grid;
-  grid-template-columns: 1fr;
-  gap: 0;
-}
-
-.menu-card:hover .menu-list {
-  max-height: 1000px;
   grid-template-columns: repeat(2, 1fr);
   gap: 0 40px;
-  transition: max-height 0.5s cubic-bezier(0.4, 0, 0.2, 1) 0.8s,
-              grid-template-columns 0s linear 0.8s,
-              gap 0s linear 0.8s;
 }
 
 .menu-list li {
@@ -286,26 +279,26 @@ nav a:hover {
   padding-left: 20px;
   opacity: 0;
   transform: translateX(-20px);
-  transition: opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1),
-              transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+              transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.menu-card:hover .menu-list li {
+.menu-content.active .menu-list li {
   opacity: 1;
   transform: translateX(0);
 }
 
-.menu-card:hover .menu-list li:nth-child(1) { transition-delay: 0.9s; }
-.menu-card:hover .menu-list li:nth-child(2) { transition-delay: 0.95s; }
-.menu-card:hover .menu-list li:nth-child(3) { transition-delay: 1s; }
-.menu-card:hover .menu-list li:nth-child(4) { transition-delay: 1.05s; }
-.menu-card:hover .menu-list li:nth-child(5) { transition-delay: 1.1s; }
-.menu-card:hover .menu-list li:nth-child(6) { transition-delay: 1.15s; }
-.menu-card:hover .menu-list li:nth-child(7) { transition-delay: 1.2s; }
-.menu-card:hover .menu-list li:nth-child(8) { transition-delay: 1.25s; }
-.menu-card:hover .menu-list li:nth-child(9) { transition-delay: 1.3s; }
-.menu-card:hover .menu-list li:nth-child(10) { transition-delay: 1.35s; }
-.menu-card:hover .menu-list li:nth-child(11) { transition-delay: 1.4s; }
+.menu-content.active .menu-list li:nth-child(1) { transition-delay: 0.1s; }
+.menu-content.active .menu-list li:nth-child(2) { transition-delay: 0.15s; }
+.menu-content.active .menu-list li:nth-child(3) { transition-delay: 0.2s; }
+.menu-content.active .menu-list li:nth-child(4) { transition-delay: 0.25s; }
+.menu-content.active .menu-list li:nth-child(5) { transition-delay: 0.3s; }
+.menu-content.active .menu-list li:nth-child(6) { transition-delay: 0.35s; }
+.menu-content.active .menu-list li:nth-child(7) { transition-delay: 0.4s; }
+.menu-content.active .menu-list li:nth-child(8) { transition-delay: 0.45s; }
+.menu-content.active .menu-list li:nth-child(9) { transition-delay: 0.5s; }
+.menu-content.active .menu-list li:nth-child(10) { transition-delay: 0.55s; }
+.menu-content.active .menu-list li:nth-child(11) { transition-delay: 0.6s; }
 
 .menu-list li:last-child {
   border-bottom: none;
@@ -322,7 +315,7 @@ nav a:hover {
   font-size: 13px;
 }
 
-.menu-card:hover .menu-list li.menu-included {
+.menu-content.active .menu-list li.menu-included {
   opacity: 0.5;
 }
 
@@ -403,20 +396,12 @@ footer p {
     padding: 8px 16px;
   }
 
-  .menu-grid {
-    gap: 12px;
-    max-width: 100%;
+  .menu-container {
+    grid-template-columns: 1fr;
+    gap: 24px;
   }
 
-  .menu-card {
-    width: 100%;
-  }
-
-  .menu-card:hover {
-    width: 100%;
-  }
-
-  .menu-card:hover .menu-list {
+  .menu-list {
     grid-template-columns: 1fr;
   }
 
@@ -444,23 +429,17 @@ footer p {
     padding-inline: 20px;
   }
 
-  .menu-grid {
-    gap: 12px;
-    max-width: 100%;
-  }
-
-  .menu-card {
-    width: 100%;
-    padding: 20px;
-  }
-
-  .menu-card:hover {
-    width: 100%;
-  }
-
-  .menu-card:hover .menu-list {
+  .menu-container {
     grid-template-columns: 1fr;
-    gap: 0;
+    gap: 20px;
+  }
+
+  .menu-canvas {
+    padding: 24px;
+  }
+
+  .menu-list {
+    grid-template-columns: 1fr;
   }
 
   .contact {
