@@ -149,8 +149,9 @@ nav a:hover {
 }
 
 .menu-inner {
-  max-width: 1200px;
+  max-width: 1400px;
   margin: 0 auto;
+  position: relative;
 }
 
 .menu-section h3 {
@@ -162,35 +163,49 @@ nav a:hover {
 }
 
 .menu-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 32px;
-  align-items: start;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  max-width: 300px;
 }
 
 .menu-card {
   background: rgba(244, 236, 223, 0.05);
   border: 1px solid rgba(244, 236, 223, 0.15);
   border-radius: 8px;
-  padding: 32px 24px 24px 24px;
+  padding: 24px;
+  margin-bottom: 0;
   text-align: left;
-  transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1),
-              border-color 0.8s cubic-bezier(0.4, 0, 0.2, 1),
-              box-shadow 0.8s cubic-bezier(0.4, 0, 0.2, 1),
-              height 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+              border-color 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+              box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+              width 0.6s cubic-bezier(0.4, 0, 0.2, 1),
+              padding 0.6s cubic-bezier(0.4, 0, 0.2, 1),
+              margin-bottom 0.6s cubic-bezier(0.4, 0, 0.2, 1),
+              z-index 0s linear 0s;
   cursor: pointer;
-  overflow: visible;
-  height: 80px;
+  overflow: hidden;
+  width: 300px;
   position: relative;
+  z-index: 1;
+  pointer-events: auto;
 }
 
 .menu-card:hover {
-  transform: translateY(-4px);
   border-color: rgba(244, 236, 223, 0.3);
   overflow: visible;
-  height: auto;
+  width: 900px;
   z-index: 10;
-  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.6);
+  padding-bottom: 32px;
+  margin-bottom: 250px;
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1) 0.6s,
+              border-color 0.3s cubic-bezier(0.4, 0, 0.2, 1) 0.6s,
+              box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1) 0.6s,
+              width 0.6s cubic-bezier(0.4, 0, 0.2, 1) 0.6s,
+              padding 0.6s cubic-bezier(0.4, 0, 0.2, 1) 0.6s,
+              margin-bottom 0.6s cubic-bezier(0.4, 0, 0.2, 1) 0.6s,
+              z-index 0s linear 0.6s;
 }
 
 .menu-highlighted {
@@ -199,36 +214,43 @@ nav a:hover {
 }
 
 .menu-card h4 {
-  font-size: 24px;
+  font-size: 20px;
   text-transform: uppercase;
   letter-spacing: 0.15em;
-  margin-bottom: 20px;
+  margin-bottom: 0;
   color: var(--cream);
-  text-align: center;
-  transition: color 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+  text-align: left;
+  transition: color 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+              margin-bottom 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .menu-card:hover h4 {
   color: var(--button-bg);
+  margin-bottom: 20px;
+  transition: color 0.3s cubic-bezier(0.4, 0, 0.2, 1) 0.7s,
+              margin-bottom 0.3s cubic-bezier(0.4, 0, 0.2, 1) 0.7s;
 }
 
 .menu-includes {
-  font-size: 13px;
+  font-size: 12px;
   color: var(--cream);
   margin-bottom: 0;
   font-style: italic;
   opacity: 0;
   max-height: 0;
   overflow: hidden;
-  transition: opacity 0.9s cubic-bezier(0.4, 0, 0.2, 1),
-              max-height 0.9s cubic-bezier(0.4, 0, 0.2, 1),
-              margin-bottom 0.9s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+              max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+              margin-bottom 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .menu-card:hover .menu-includes {
   opacity: 0.9;
   max-height: 50px;
-  margin-bottom: 16px;
+  margin-bottom: 12px;
+  transition: opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1) 0.8s,
+              max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1) 0.8s,
+              margin-bottom 0.4s cubic-bezier(0.4, 0, 0.2, 1) 0.8s;
 }
 
 .menu-list {
@@ -237,11 +259,21 @@ nav a:hover {
   margin: 0;
   max-height: 0;
   overflow: hidden;
-  transition: max-height 1s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: max-height 0.5s cubic-bezier(0.4, 0, 0.2, 1),
+              grid-template-columns 0s linear 0s,
+              gap 0s linear 0s;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0;
 }
 
 .menu-card:hover .menu-list {
   max-height: 1000px;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0 40px;
+  transition: max-height 0.5s cubic-bezier(0.4, 0, 0.2, 1) 0.8s,
+              grid-template-columns 0s linear 0.8s,
+              gap 0s linear 0.8s;
 }
 
 .menu-list li {
@@ -253,27 +285,27 @@ nav a:hover {
   position: relative;
   padding-left: 20px;
   opacity: 0;
-  transform: translateY(-10px);
-  transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1),
-              transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+  transform: translateX(-20px);
+  transition: opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+              transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .menu-card:hover .menu-list li {
   opacity: 1;
-  transform: translateY(0);
+  transform: translateX(0);
 }
 
-.menu-card:hover .menu-list li:nth-child(1) { transition-delay: 0.1s; }
-.menu-card:hover .menu-list li:nth-child(2) { transition-delay: 0.2s; }
-.menu-card:hover .menu-list li:nth-child(3) { transition-delay: 0.3s; }
-.menu-card:hover .menu-list li:nth-child(4) { transition-delay: 0.4s; }
-.menu-card:hover .menu-list li:nth-child(5) { transition-delay: 0.5s; }
-.menu-card:hover .menu-list li:nth-child(6) { transition-delay: 0.6s; }
-.menu-card:hover .menu-list li:nth-child(7) { transition-delay: 0.7s; }
-.menu-card:hover .menu-list li:nth-child(8) { transition-delay: 0.8s; }
-.menu-card:hover .menu-list li:nth-child(9) { transition-delay: 0.9s; }
-.menu-card:hover .menu-list li:nth-child(10) { transition-delay: 1s; }
-.menu-card:hover .menu-list li:nth-child(11) { transition-delay: 1.1s; }
+.menu-card:hover .menu-list li:nth-child(1) { transition-delay: 0.9s; }
+.menu-card:hover .menu-list li:nth-child(2) { transition-delay: 0.95s; }
+.menu-card:hover .menu-list li:nth-child(3) { transition-delay: 1s; }
+.menu-card:hover .menu-list li:nth-child(4) { transition-delay: 1.05s; }
+.menu-card:hover .menu-list li:nth-child(5) { transition-delay: 1.1s; }
+.menu-card:hover .menu-list li:nth-child(6) { transition-delay: 1.15s; }
+.menu-card:hover .menu-list li:nth-child(7) { transition-delay: 1.2s; }
+.menu-card:hover .menu-list li:nth-child(8) { transition-delay: 1.25s; }
+.menu-card:hover .menu-list li:nth-child(9) { transition-delay: 1.3s; }
+.menu-card:hover .menu-list li:nth-child(10) { transition-delay: 1.35s; }
+.menu-card:hover .menu-list li:nth-child(11) { transition-delay: 1.4s; }
 
 .menu-list li:last-child {
   border-bottom: none;
@@ -372,8 +404,20 @@ footer p {
   }
 
   .menu-grid {
+    gap: 12px;
+    max-width: 100%;
+  }
+
+  .menu-card {
+    width: 100%;
+  }
+
+  .menu-card:hover {
+    width: 100%;
+  }
+
+  .menu-card:hover .menu-list {
     grid-template-columns: 1fr;
-    gap: 24px;
   }
 
   .contact-grid {
@@ -401,24 +445,22 @@ footer p {
   }
 
   .menu-grid {
-    gap: 20px;
+    gap: 12px;
+    max-width: 100%;
   }
 
   .menu-card {
-    padding: 24px 20px 20px 20px;
-    transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1),
-                border-color 0.8s cubic-bezier(0.4, 0, 0.2, 1),
-                box-shadow 0.8s cubic-bezier(0.4, 0, 0.2, 1),
-                height 0.8s cubic-bezier(0.4, 0, 0.2, 1);
-    height: 80px;
-    overflow: visible;
-    position: relative;
+    width: 100%;
+    padding: 20px;
   }
 
   .menu-card:hover {
-    height: auto;
-    overflow: visible;
-    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.5);
+    width: 100%;
+  }
+
+  .menu-card:hover .menu-list {
+    grid-template-columns: 1fr;
+    gap: 0;
   }
 
   .contact {
