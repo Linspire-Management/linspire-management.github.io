@@ -141,19 +141,19 @@ nav a:hover {
   box-shadow: 0 8px 24px rgba(0,0,0,0.4);
 }
 
-/* SPECIALTIES SECTION */
-.specialties {
+/* MENU SECTION */
+.menu-section {
   background: var(--dark);
   padding: 70px 40px 80px;
   text-align: center;
 }
 
-.specialties-inner {
-  max-width: 1100px;
+.menu-inner {
+  max-width: 1200px;
   margin: 0 auto;
 }
 
-.specialties h3 {
+.menu-section h3 {
   font-size: 28px;
   text-transform: uppercase;
   letter-spacing: 0.2em;
@@ -161,15 +161,78 @@ nav a:hover {
   color: var(--cream);
 }
 
-.specialty-grid {
+.menu-grid {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 24px;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
 }
 
-.specialty-card img {
-  height: 240px;
-  object-fit: cover;
+.menu-card {
+  background: rgba(244, 236, 223, 0.05);
+  border: 1px solid rgba(244, 236, 223, 0.15);
+  border-radius: 8px;
+  padding: 32px 24px;
+  text-align: left;
+  transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.menu-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(244, 236, 223, 0.3);
+}
+
+.menu-highlighted {
+  border-color: rgba(244, 236, 223, 0.4);
+  background: rgba(244, 236, 223, 0.08);
+}
+
+.menu-card h4 {
+  font-size: 24px;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  margin-bottom: 20px;
+  color: var(--cream);
+  text-align: center;
+}
+
+.menu-includes {
+  font-size: 13px;
+  color: var(--cream);
+  margin-bottom: 16px;
+  font-style: italic;
+  opacity: 0.9;
+}
+
+.menu-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.menu-list li {
+  font-size: 14px;
+  line-height: 1.8;
+  color: var(--nav-text);
+  padding: 8px 0;
+  border-bottom: 1px solid rgba(244, 236, 223, 0.1);
+  position: relative;
+  padding-left: 20px;
+}
+
+.menu-list li:last-child {
+  border-bottom: none;
+}
+
+.menu-list li::before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  color: var(--cream);
+}
+
+.menu-list li.menu-included {
+  opacity: 0.5;
+  font-size: 13px;
 }
 
 /* CONTACT SECTION */
@@ -249,8 +312,9 @@ footer p {
     padding: 8px 16px;
   }
 
-  .specialty-grid {
-    grid-template-columns: repeat(2, 1fr);
+  .menu-grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
   }
 
   .contact-grid {
@@ -273,16 +337,16 @@ footer p {
     padding: 7px 12px;
   }
 
-  .specialties {
+  .menu-section {
     padding-inline: 20px;
   }
 
-  .specialty-grid {
-    grid-template-columns: 1fr;
+  .menu-grid {
+    gap: 20px;
   }
 
-  .specialty-card img {
-    height: 220px;
+  .menu-card {
+    padding: 24px 20px;
   }
 
   .contact {
