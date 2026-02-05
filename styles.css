@@ -86,7 +86,7 @@ nav a:hover {
   content: "";
   position: absolute;
   inset: 0;
-  background-image: url("Japanese_Grill_meat.jpeg");
+  background-image: url("/media/Japanese_Grill_meat.jpeg");
   background-size: cover;
   background-position: center;
   filter: brightness(0.55);
