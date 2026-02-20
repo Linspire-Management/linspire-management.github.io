@@ -33,9 +33,9 @@ document.addEventListener('DOMContentLoaded', function() {
           }
         });
 
-        // Insert included items at the beginning
-        includedItems.reverse().forEach(item => {
-          menuList.insertBefore(item, menuList.firstChild);
+        // Append included items at the end
+        includedItems.forEach(item => {
+          menuList.appendChild(item);
         });
       }
     });
