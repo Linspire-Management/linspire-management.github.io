@@ -252,6 +252,26 @@ nav a:hover {
   text-align: left;
 }
 
+.menu-content h5 {
+  font-size: 28px;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  margin-bottom: 24px;
+  color: var(--cream);
+  text-align: left;
+}
+
+.menu-content h6 {
+  font-size: 20px;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  margin-top: 32px;
+  margin-bottom: 16px;
+  color: var(--cream);
+  text-align: left;
+  font-weight: 600;
+}
+
 .menu-includes {
   font-size: 13px;
   color: var(--cream);
