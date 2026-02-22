@@ -141,6 +141,30 @@ nav a:hover {
   box-shadow: 0 8px 24px rgba(0,0,0,0.4);
 }
 
+.floating-contact-btn {
+  position: fixed;
+  right: clamp(14px, 2.5vw, 28px);
+  bottom: calc(16px + env(safe-area-inset-bottom, 0px));
+  z-index: 40;
+  min-height: 52px;
+  padding: 14px 20px;
+  border: 1px solid rgba(244, 236, 223, 0.95);
+  border-radius: 4px;
+  background: rgba(244, 236, 223, 0.95);
+  color: #111;
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.45);
+}
+
+.floating-contact-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 16px 30px rgba(0, 0, 0, 0.5);
+}
+
+.floating-contact-btn:focus-visible {
+  outline: 3px solid #f0c14b;
+  outline-offset: 3px;
+}
+
 /* MENU SECTION */
 .menu-section {
   background: var(--dark);
@@ -488,5 +512,16 @@ footer p {
 
   .contact-grid {
     gap: 25px;
+  }
+
+  .floating-contact-btn {
+    left: 12px;
+    right: 12px;
+    bottom: calc(12px + env(safe-area-inset-bottom, 0px));
+    width: auto;
+    justify-content: center;
+    min-height: 54px;
+    font-size: 11px;
+    letter-spacing: 0.16em;
   }
 }
