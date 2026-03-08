@@ -14,28 +14,38 @@ document.addEventListener('DOMContentLoaded', function() {
     menuContents.forEach(content => {
       const includes = content.getAttribute('data-includes');
       if (includes) {
-        const menuList = content.querySelector('.menu-list');
-        const existingItems = Array.from(menuList.querySelectorAll('li'));
+        const menuLists = content.querySelectorAll('.menu-list');
+        const regularMenuList = menuLists[0]; // First list for regular items
+        const selfServeMenuList = menuLists[1]; // Second list for self-serve items
 
         // Get items from included menus
         const includeMenus = includes.split(',').map(m => m.trim());
-        const includedItems = [];
 
         includeMenus.forEach(menuId => {
           const sourceMenu = document.getElementById(`menu-${menuId}`);
           if (sourceMenu) {
-            const sourceItems = sourceMenu.querySelectorAll('.menu-list li:not(.menu-included)');
-            sourceItems.forEach(item => {
-              const clonedItem = item.cloneNode(true);
-              clonedItem.classList.add('menu-included');
-              includedItems.push(clonedItem);
-            });
-          }
-        });
+            const sourceLists = sourceMenu.querySelectorAll('.menu-list');
 
-        // Append included items at the end
-        includedItems.forEach(item => {
-          menuList.appendChild(item);
+            // Clone regular items from first list
+            if (sourceLists[0]) {
+              const regularItems = sourceLists[0].querySelectorAll('li:not(.menu-included)');
+              regularItems.forEach(item => {
+                const clonedItem = item.cloneNode(true);
+                clonedItem.classList.add('menu-included');
+                regularMenuList.appendChild(clonedItem);
+              });
+            }
+
+            // Clone self-serve items from second list
+            if (sourceLists[1] && selfServeMenuList) {
+              const selfServeItems = sourceLists[1].querySelectorAll('li:not(.menu-included)');
+              selfServeItems.forEach(item => {
+                const clonedItem = item.cloneNode(true);
+                clonedItem.classList.add('menu-included');
+                selfServeMenuList.appendChild(clonedItem);
+              });
+            }
+          }
         });
       }
     });
