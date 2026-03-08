@@ -32,3 +32,6 @@
 *.app
 
 .DS_Store
+
+# Videos
+/media/Kazan2026.mov
